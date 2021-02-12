@@ -1,10 +1,10 @@
 on: 
   workflow_dispatch:
   
-name: Invite Mason
+name: Testing-gh
 
 jobs:
-  Grading-Script:
+  Testing-gh:
     runs-on: macOS-latest
     env:
       MY_GITHUB_REPO: ${{ github.repository }}
@@ -16,7 +16,11 @@ jobs:
         run: |
           install.packages("gh")
         shell: Rscript {0}
+      -name: Add an Issue
+        run: |
+          source("ds4psych/R/create_issue.R")
+        shell: Rscript {0}
       - name: Inviting
         run: |
-          source("R/invite_mason.R")
+          source("ds4psych/R/invite_mason.R")
         shell: Rscript {0}
