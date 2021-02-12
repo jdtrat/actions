@@ -16,7 +16,7 @@ jobs:
         run: |
           install.packages("gh")
         shell: Rscript {0}
-      -name: Add an Issue
+      - name: Add an Issue
         run: |
           source("ds4psych/R/create_issue.R")
         shell: Rscript {0}
