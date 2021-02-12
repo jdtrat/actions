@@ -1,0 +1,22 @@
+on: 
+  workflow_dispatch:
+  
+name: Invite Mason
+
+jobs:
+  Grading-Script:
+    runs-on: macOS-latest
+    env:
+      MY_GITHUB_REPO: ${{ github.repository }}
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - name: Install dependencies
+        run: |
+          install.packages("gh")
+        shell: Rscript {0}
+      - name: Inviting
+        run: |
+          source("R/invite_mason.R")
+        shell: Rscript {0}
