@@ -1,3 +1,5 @@
+install.packages("remotes")
+remotes::install_github("jdtrat/simplegit")
 library(simplegit)
 
 my_repo <- Sys.getenv("MY_GITHUB_REPO")
