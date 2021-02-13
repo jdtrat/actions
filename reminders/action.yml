@@ -1,11 +1,9 @@
-on: 
-  schedule:
-    - cron: "0 */11 * * 1,3,5"
-  
-name: Reminders
+name: 'Remind Collaborators to Review Items'
+description: 'Post Reminders to Github Issues using the {gh} package and REST API.'
+author: 'Jonathan D. Trattner'
 
 jobs:
-  Testing-gh:
+  Reminders:
     runs-on: macOS-latest
     env:
       MY_GITHUB_REPO: ${{ github.repository }}
