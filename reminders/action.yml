@@ -12,10 +12,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-      - run: |
-          install.packages("remotes")
-          devtools::install_github("jdtrat/simplegit")
-      shell: Rscript {0}
-      - run: |
-          source("reminders/R/remind_collaborator.R")
+      - run: source("reminders/R/remind_collaborator.R")
       shell: Rscript {0}
