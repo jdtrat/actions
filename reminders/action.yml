@@ -1,13 +1,19 @@
 name: 'Remind Collaborators to Review Items'
 description: 'Post Reminders to Github Issues using the {gh} package and REST API.'
 author: 'Jonathan D. Trattner'
-
+inputs:
+  github_repo:
+    description: 'Github Repo where reminders should be issued'
+    default: '$ {{ github.repository }}'
+  github_pat: 
+    description: 'Github token for performing actions on behalf of a user'
+    default: '$ {{ secrets.GITHUB_TOKEN }}'
 jobs:
   Reminders:
     runs-on: macOS-latest
     env:
-      MY_GITHUB_REPO: ${{ github.repository }}
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      MY_GITHUB_REPO: ${{ github_repo }}
+      GITHUB_PAT: ${{ github_pat }}
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@v1
