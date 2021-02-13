@@ -12,5 +12,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-      - run: source("reminders/R/remind_collaborator.R")
+    - run: source("reminders/R/remind_collaborator.R")
       shell: Rscript {0}
