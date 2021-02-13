@@ -10,7 +10,6 @@ inputs:
     default: '$ {{ secrets.GITHUB_TOKEN }}'
     
 runs:
-  Reminders:
     runs-on: macOS-latest
     env:
       MY_GITHUB_REPO: github_repo
