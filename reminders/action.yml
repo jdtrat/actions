@@ -8,7 +8,8 @@ inputs:
   github_pat: 
     description: 'Github token for performing actions on behalf of a user'
     default: '$ {{ secrets.GITHUB_TOKEN }}'
-jobs:
+    
+runs:
   Reminders:
     runs-on: macOS-latest
     env:
