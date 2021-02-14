@@ -2,10 +2,7 @@ install.packages("remotes")
 remotes::install_github("jdtrat/simplegit")
 library(simplegit)
 
-my_repo <- Sys.getenv("MY_GITHUB_REPO")
-my_pat <- Sys.getenv("GITHUB_PAT")
-collaborators <- Sys.getenv("GITHUB_COLLABORATORS")
-action <- Sys.getenv("GITHUB_REMIND_ACTION")
+sys <- Sys.getenv()
 
 display_date <- function() {
   # manually create a vector for date suffixes
@@ -15,7 +12,7 @@ display_date <- function() {
   paste0(date, suffix)
 }
 
-gh_issue_comment(path = my_repo, 
-                 issue_number = 1, 
-                 body = paste0("Hello, ", collaborators, "Happy ", format(Sys.Date(), "%A"), ". What a day today, the ", display_date(), " of ", format(Sys.Date(), "%B"), ", is to ", action, "! 😄"),
-                 .token = my_pat)
+gh_issue_comment(path = sys[["MY_GITHUB_REPO"]], 
+                 issue_number = sys[["ISSUE_NUMBER"]], 
+                 body = paste0("Hello, ", sys[["REMINDEE"]], "Happy ", format(Sys.Date(), "%A"), ". What a day today, the ", display_date(), " of ", format(Sys.Date(), "%B"), ", is to ", sys[["ACTION"]], "! 😄"),
+                 .token = sys[["GITHUB_PAT"]])
