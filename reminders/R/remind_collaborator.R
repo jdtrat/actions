@@ -1,6 +1,6 @@
 # Install Dependencies ----------------------------------------------------
-install.packages("remotes")
-remotes::install_github("jdtrat/simplegit")
+# if (!require("remotes")) install.packages("remotes")
+# if (!require("simplegit")) remotes::install_github("jdtrat/simplegit")
 
 # Load Any Packages -------------------------------------------------------
 library(simplegit)
