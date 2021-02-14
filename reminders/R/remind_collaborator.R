@@ -5,14 +5,6 @@ remotes::install_github("jdtrat/simplegit")
 # Load Any Packages -------------------------------------------------------
 library(simplegit)
 
-# Save necessary packages for caching -------------------------------------
-# Adapted from https://github.com/r-lib/actions/blob/f2e0935fb4623b6432c177590bcfb7d13a09767f/examples/check-full.yaml#L55
-
-getwd()
-
-# saveRDS(.packages(), "depends.Rds", version = 2)
-# writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), "R-version")
-
 # Define Actions ----------------------------------------------------------
 
 # Save the system environment as sys for easier indexing
