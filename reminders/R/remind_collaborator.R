@@ -1,9 +1,21 @@
+# Install Dependencies ----------------------------------------------------
 install.packages("remotes")
 remotes::install_github("jdtrat/simplegit")
+
+# Load Any Packages -------------------------------------------------------
 library(simplegit)
 
+# Save necessary packages for caching -------------------------------------
+# Adapted from https://github.com/r-lib/actions/blob/f2e0935fb4623b6432c177590bcfb7d13a09767f/examples/check-full.yaml#L55
+saveRDS(.packages(), ".github/depends.Rds", version = 2)
+writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+
+# Define Actions ----------------------------------------------------------
+
+# Save the system environment as sys for easier indexing
 sys <- Sys.getenv()
 
+# Function to make dates nicely
 display_date <- function() {
   # manually create a vector for date suffixes
   date_suffixes <- c("st", "nd", "rd", rep("th", 17), "st", "nd", "rd", rep("th", 7), "st")
@@ -12,6 +24,7 @@ display_date <- function() {
   paste0(date, suffix)
 }
 
+# Comment on a Github Issue with reminder for your collaborator to do action X.
 gh_issue_comment(path = sys[["MY_GITHUB_REPO"]], 
                  issue_number = sys[["ISSUE_NUMBER"]], 
                  body = paste0("Hello, @", sys[["REMINDEE"]], " Happy ", format(Sys.Date(), "%A"), ". What a day today, the ", display_date(), " of ", format(Sys.Date(), "%B"), ", is to ", sys[["ACTION"]], "! 😄"),
