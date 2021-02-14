@@ -14,5 +14,5 @@ display_date <- function() {
 
 gh_issue_comment(path = sys[["MY_GITHUB_REPO"]], 
                  issue_number = sys[["ISSUE_NUMBER"]], 
-                 body = paste0("Hello, ", sys[["REMINDEE"]], "Happy ", format(Sys.Date(), "%A"), ". What a day today, the ", display_date(), " of ", format(Sys.Date(), "%B"), ", is to ", sys[["ACTION"]], "! 😄"),
+                 body = paste0("Hello, @", sys[["REMINDEE"]], "Happy ", format(Sys.Date(), "%A"), ". What a day today, the ", display_date(), " of ", format(Sys.Date(), "%B"), ", is to ", sys[["ACTION"]], "! 😄"),
                  .token = sys[["GITHUB_PAT"]])
