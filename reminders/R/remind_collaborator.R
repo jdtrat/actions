@@ -1,9 +1,9 @@
 # Install Dependencies ----------------------------------------------------
 if (!require("remotes")) install.packages("remotes")
-if (!require("simplegit")) remotes::install_github("jdtrat/simplegit")
+if (!require("ghee")) remotes::install_github("jdtrat/ghee")
 
 # Load Any Packages -------------------------------------------------------
-library(simplegit)
+library(ghee)
 
 # Define Actions ----------------------------------------------------------
 
